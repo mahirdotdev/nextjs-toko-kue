@@ -1,0 +1,43 @@
+[
+  {
+    "id": "kue-coklat-klasik-01",
+    "nama": "Kue Coklat Klasik",
+    "deskripsiSingkat": "Kue coklat lembut dengan ganache mewah.",
+    "deskripsiLengkap": "Kue coklat klasik kami dibuat dengan bahan-bahan premium, menghasilkan tekstur yang lembut dan rasa coklat yang kaya. Dilapisi dengan ganache coklat Belgia yang mewah, sempurna untuk segala suasana.",
+    "harga": 250000,
+    "gambarUrl": "/images/kue/kue-coklat-klasik.jpg",
+    "kategori": "Cake",
+    "rating": 4.8,
+    "bahanUtama": ["Coklat Bubuk", "Tepung Terigu", "Telur", "Gula", "Butter"]
+  },
+  {
+    "id": "roti-tawar-gandum-02",
+    "nama": "Roti Tawar Gandum",
+    "deskripsiSingkat": "Roti tawar sehat dari gandum utuh.",
+    "deskripsiLengkap": "Nikmati sarapan sehat dengan roti tawar gandum kami. Dibuat dari 100% gandum utuh, kaya serat dan nutrisi. Cocok untuk sandwich atau dinikmati dengan selai favoritmu.",
+    "harga": 25000,
+    "gambarUrl": "/images/kue/roti-gandum.jpg",
+    "kategori": "Roti",
+    "rating": 4.5
+  },
+  {
+    "id": "cookies-choco-chip-03",
+    "nama": "Cookies Choco Chip",
+    "deskripsiSingkat": "Cookies renyah dengan taburan choco chip melimpah.",
+    "deskripsiLengkap": "Siapa bisa menolak cookies choco chip klasik? Dibuat dengan resep rahasia kami, menghasilkan cookies yang renyah di luar dan chewy di dalam, dengan choco chip berkualitas yang meleleh di mulut.",
+    "harga": 45000,
+    "gambarUrl": "/images/kue/cookies-choco-chip.jpg",
+    "kategori": "Cookies",
+    "bahanUtama": ["Tepung Terigu", "Choco Chips", "Butter", "Gula Palem"]
+  },
+  {
+    "id": "red-velvet-cupcake-04",
+    "nama": "Red Velvet Cupcake",
+    "deskripsiSingkat": "Cupcake red velvet lembut dengan cream cheese frosting.",
+    "deskripsiLengkap": "Manjakan dirimu dengan Red Velvet Cupcake kami! Tekstur cakenya yang lembut dengan warna merah menawan, dipadukan sempurna dengan cream cheese frosting yang creamy dan sedikit asam. Bikin nagih!",
+    "harga": 30000,
+    "gambarUrl": "/images/kue/red-velvet-cupcake.jpg",
+    "kategori": "Cupcake",
+    "rating": 4.9
+  }
+]
