@@ -8,9 +8,9 @@ import TombolTambahKeranjang from '@/components/tombol-tambah-keranjang';
  
 // Tipe untuk props yang diterima halaman ini (termasuk params dinamis)
 interface DetailKuePageProps {
-  params: {
+  params: Promise<{
     idKue: string; // 'idKue' harus sama dengan nama folder dinamis '[idKue]'
-  };
+  }>;
   // searchParams?: { [key: string]: string | string[] | undefined }; // Jika butuh query params
 }
  
@@ -50,7 +50,7 @@ export default async function HalamanDetailKue({ params }: DetailKuePageProps) {
   //   const params = await paramsPromise;
   //   const idKue = params.idKue;
   
-  const idKue = params.idKue; // Langsung akses dari props.params
+  const {idKue} = await params; // Langsung akses dari props.params
   const kue = await getDetailKue(idKue);
  
   if (!kue) {
