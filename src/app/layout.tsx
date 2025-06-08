@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { CartProvider } from "@/context/cart-context";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +14,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="antialiased">
+        <CartProvider>
+          {" "}
+          {/* Bungkus semua dengan CartProvider */}
+          {/* <Navbar /> */}{" "}
+          {/* Navbar bisa ditaruh di sini biar bisa akses info keranjang */}
+          <main className="main-content-area">
+            {" "}
+            {/* Kasih class buat styling main content */}
+            {children}
+          </main>
+          {/* Footer bisa di sini juga */}
+        </CartProvider>
       </body>
     </html>
   );

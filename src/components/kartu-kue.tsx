@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link"; // Buat link ke halaman detail
 import Image from "next/image"; // Buat optimasi gambar Next.js
 import { Kue } from "@/types/kue"; // Impor tipe Kue kita
+import TombolTambahKeranjang from "./tombol-tambah-keranjang";
 // Definisikan tipe untuk props yang diterima komponen ini
 
 interface KartuKueProps {
@@ -37,9 +38,7 @@ export default function KartuKue({ kue }: KartuKueProps) {
           Rp {kue.harga.toLocaleString("id-ID")}
         </p>
 
-        <button className="mt-3 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-md transition-colors text-sm">
-          Lihat Detail / Tambah ke Keranjang
-        </button>
+        <TombolTambahKeranjang kue={kue} />
       </div>
     </Link>
   );
