@@ -3,6 +3,9 @@
  
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Kue, ItemKeranjang } from '@/types/kue'; // Impor tipe kita
+import { Session, User } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase-client';
  
 // Definisikan tipe untuk nilai context
 interface CartContextType {
@@ -13,6 +16,11 @@ interface CartContextType {
   kosongkanKeranjang: () => void;
   totalItem: number;
   totalHarga: number;
+
+  user: User | null;
+  session: Session | null;
+  isLoadingAuth: boolean; // Buat nandain kalau status auth lagi dicek
+  signOut: () => Promise<void>;
 }
  
 // Bikin Context dengan nilai default undefined (atau objek default)
@@ -30,6 +38,47 @@ interface CartProviderProps {
 }
  
 export function CartProvider({ children }: CartProviderProps) {
+
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
+  const [isLoadingAuth, setIsLoadingAuth] = useState(true); // Awalnya true
+  const router = useRouter(); // Jika mau redirect dari sini
+
+  useEffect(() => {
+    async function getSessionData() {
+      const { data: { session: currentSession }, error } = await supabase.auth.getSession();
+      if (error) {
+        console.error("Error getting session:", error);
+      }
+      setSession(currentSession);
+      setUser(currentSession?.user ?? null);
+      setIsLoadingAuth(false); // Selesai loading status auth awal
+    }
+    getSessionData();
+ 
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, newSession) => {
+      console.log("Auth state changed:", _event, newSession);
+      setSession(newSession);
+      setUser(newSession?.user ?? null);
+      setIsLoadingAuth(false); // Selesai loading juga pas ada perubahan
+      
+      // Contoh: kalau event-nya SIGNED_OUT dan kita lagi di halaman terproteksi, redirect
+      // if (_event === 'SIGNED_OUT' && window.location.pathname.startsWith('/checkout')) {
+      //    router.push('/auth/signin');
+      // }
+    });
+ 
+    return () => {
+      authListener?.subscription?.unsubscribe();
+    };
+  }, [router]); // Tambahkan router jika digunakan di effect
+
+  const signOut = async () => {
+    await supabase.auth.signOut();
+    // setUser(null); setSession(null); // akan dihandle oleh onAuthStateChange
+    router.push('/auth/signin'); // Arahkan setelah logout
+  };
+  
   const [itemDiKeranjang, setItemDiKeranjang] = useState<ItemKeranjang[]>(() => {
     // Ambil dari localStorage pas awal
     if (typeof window !== "undefined") { // Pastikan localStorage cuma diakses di client-side
@@ -96,7 +145,11 @@ export function CartProvider({ children }: CartProviderProps) {
     updateJumlah,
     kosongkanKeranjang,
     totalItem,
-    totalHarga
+    totalHarga,
+    user,
+    session,
+    isLoadingAuth,
+    signOut
   };
  
   return (

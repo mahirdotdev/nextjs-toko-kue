@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CartProvider } from "@/context/cart-context";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,7 @@ export default function RootLayout({
         <CartProvider>
           {" "}
           {/* Bungkus semua dengan CartProvider */}
-          {/* <Navbar /> */}{" "}
+          <Navbar />{" "}
           {/* Navbar bisa ditaruh di sini biar bisa akses info keranjang */}
           <main className="main-content-area">
             {" "}

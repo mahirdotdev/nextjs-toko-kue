@@ -1,14 +1,14 @@
 // src/app/checkout/page.tsx
 "use client"; // Karena kita akan menggunakan form dan state
  
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'; // Untuk navigasi programatik
 import { useCart } from '@/context/cart-context'; // Untuk akses keranjang & kosongkan
  
 export default function HalamanCheckout() {
   const router = useRouter();
-  const { itemDiKeranjang, totalHarga, kosongkanKeranjang } = useCart();
+  const { itemDiKeranjang, totalHarga, kosongkanKeranjang, user, session, isLoadingAuth } = useCart(); 
  
   // State untuk field form
   const [nama, setNama] = useState('');
@@ -16,6 +16,15 @@ export default function HalamanCheckout() {
   const [alamat, setAlamat] = useState('');
   const [telepon, setTelepon] = useState('');
   const [catatan, setCatatan] = useState('');
+
+
+  // Efek buat ngecek status login
+  useEffect(() => {
+    // Jangan redirect kalau status auth masih loading atau kalau sudah ada sesi
+    if (!isLoadingAuth && !session) {
+      router.push('/auth/signin?redirect=/checkout'); // Arahkan ke login, simpan halaman tujuan
+    }
+  }, [user, session, isLoadingAuth, router]); // Dependensi: user, session, isLoadingAuth, router
  
   const handleSubmitCheckout = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Cegah reload halaman
