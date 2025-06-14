@@ -1,30 +1,22 @@
-// src/app/api/kue/route.ts
-import { NextResponse } from 'next/server';
-import kueLengkap from '@/data/daftar-kue.json'; // Impor data dummy kita
-// Pastikan path ke daftar-kue.json sudah benar. 
-// Jika kue.ts (interface) dan daftar-kue.json ada di src/data/
-// dan API route ini ada di src/app/api/kue/, maka pathnya bisa jadi:
-// import kueLengkap from '../../../../data/daftar-kue.json'; 
-// Atau, jika kamu setup path alias di tsconfig.json (misal '@/' ke 'src/'), 
-// bisa jadi lebih rapi: import kueLengkap from '@/data/daftar-kue.json';
-// Untuk contoh ini, saya asumsikan kamu sudah setup alias `@/` ke `src/` di tsconfig.json
-// atau kamu sesuaikan path impornya.
- 
-// Impor tipe Kue jika perlu untuk validasi atau anotasi (opsional di sini)
-// import { Kue } from '@/types/kue'; 
- 
-export const dynamic = 'force-static'; 
+// src/app/api/kue/route.ts (Versi Pake Prisma Client ke Supabase)
+// import { prisma } from '@/lib/prisma-client';
+import prisma from '@/lib/prisma-client';
 
-
-export async function GET(request: Request) {
-  // Di sini kita gak perlu ngapa-ngapain request-nya karena mau ngambil semua
-  
-  // Langsung kembalikan semua data kue sebagai JSON
-  // Kita bisa asumsikan kueLengkap sudah sesuai tipe Kue[] jika diimpor dari file .ts
-  // atau kita bisa lakukan validasi sederhana jika ini dari sumber eksternal.
-  // Untuk data dummy JSON, kita langsung kirim.
-  return NextResponse.json(kueLengkap);
+ 
+export async function GET() {
+  try {
+    const semuaKue = await prisma.kue.findMany({ // Pake metode Prisma!
+      orderBy: {
+        created_at: 'desc', // Urut dari terbaru
+      },
+    });
+    return Response.json(semuaKue)
+    //return NextResponse.json({ posts, totalPages });
+  } catch (error) {
+    console.error("Error ambil semua kue via Prisma:", error);
+    return Response.json({ message: "Gagal mengambil data kue." }, { status: 500 });
+  }
 }
  
-// Kamu juga bisa nambahin handler buat method lain (POST, dll.) di sini kalau perlu
-// export async function POST(request: Request) { ... }
+// Fungsi POST, PUT, DELETE juga bisa diubah pake metode Prisma Client
+// misalnya prisma.kue.create(), prisma.kue.update(), prisma.kue.delete()
