@@ -22024,7 +22024,6 @@ export namespace Prisma {
 
   export type KueMinAggregateOutputType = {
     id: string | null
-    created_at: Date | null
     nama: string | null
     deskripsi_singkat: string | null
     deskripsi_lengkap: string | null
@@ -22033,11 +22032,11 @@ export namespace Prisma {
     kategori: string | null
     rating: Decimal | null
     updated_at: Date | null
+    created_at: Date | null
   }
 
   export type KueMaxAggregateOutputType = {
     id: string | null
-    created_at: Date | null
     nama: string | null
     deskripsi_singkat: string | null
     deskripsi_lengkap: string | null
@@ -22046,11 +22045,11 @@ export namespace Prisma {
     kategori: string | null
     rating: Decimal | null
     updated_at: Date | null
+    created_at: Date | null
   }
 
   export type KueCountAggregateOutputType = {
     id: number
-    created_at: number
     nama: number
     deskripsi_singkat: number
     deskripsi_lengkap: number
@@ -22060,6 +22059,7 @@ export namespace Prisma {
     rating: number
     bahan_utama: number
     updated_at: number
+    created_at: number
     _all: number
   }
 
@@ -22076,7 +22076,6 @@ export namespace Prisma {
 
   export type KueMinAggregateInputType = {
     id?: true
-    created_at?: true
     nama?: true
     deskripsi_singkat?: true
     deskripsi_lengkap?: true
@@ -22085,11 +22084,11 @@ export namespace Prisma {
     kategori?: true
     rating?: true
     updated_at?: true
+    created_at?: true
   }
 
   export type KueMaxAggregateInputType = {
     id?: true
-    created_at?: true
     nama?: true
     deskripsi_singkat?: true
     deskripsi_lengkap?: true
@@ -22098,11 +22097,11 @@ export namespace Prisma {
     kategori?: true
     rating?: true
     updated_at?: true
+    created_at?: true
   }
 
   export type KueCountAggregateInputType = {
     id?: true
-    created_at?: true
     nama?: true
     deskripsi_singkat?: true
     deskripsi_lengkap?: true
@@ -22112,6 +22111,7 @@ export namespace Prisma {
     rating?: true
     bahan_utama?: true
     updated_at?: true
+    created_at?: true
     _all?: true
   }
 
@@ -22203,7 +22203,6 @@ export namespace Prisma {
 
   export type KueGroupByOutputType = {
     id: string
-    created_at: Date
     nama: string | null
     deskripsi_singkat: string | null
     deskripsi_lengkap: string | null
@@ -22213,6 +22212,7 @@ export namespace Prisma {
     rating: Decimal | null
     bahan_utama: string[]
     updated_at: Date | null
+    created_at: Date | null
     _count: KueCountAggregateOutputType | null
     _avg: KueAvgAggregateOutputType | null
     _sum: KueSumAggregateOutputType | null
@@ -22236,7 +22236,6 @@ export namespace Prisma {
 
   export type kueSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
     nama?: boolean
     deskripsi_singkat?: boolean
     deskripsi_lengkap?: boolean
@@ -22246,13 +22245,13 @@ export namespace Prisma {
     rating?: boolean
     bahan_utama?: boolean
     updated_at?: boolean
+    created_at?: boolean
     detail_pesanan?: boolean | kue$detail_pesananArgs<ExtArgs>
     _count?: boolean | KueCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kue"]>
 
   export type kueSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
     nama?: boolean
     deskripsi_singkat?: boolean
     deskripsi_lengkap?: boolean
@@ -22262,11 +22261,11 @@ export namespace Prisma {
     rating?: boolean
     bahan_utama?: boolean
     updated_at?: boolean
+    created_at?: boolean
   }, ExtArgs["result"]["kue"]>
 
   export type kueSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
     nama?: boolean
     deskripsi_singkat?: boolean
     deskripsi_lengkap?: boolean
@@ -22276,11 +22275,11 @@ export namespace Prisma {
     rating?: boolean
     bahan_utama?: boolean
     updated_at?: boolean
+    created_at?: boolean
   }, ExtArgs["result"]["kue"]>
 
   export type kueSelectScalar = {
     id?: boolean
-    created_at?: boolean
     nama?: boolean
     deskripsi_singkat?: boolean
     deskripsi_lengkap?: boolean
@@ -22290,9 +22289,10 @@ export namespace Prisma {
     rating?: boolean
     bahan_utama?: boolean
     updated_at?: boolean
+    created_at?: boolean
   }
 
-  export type kueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "nama" | "deskripsi_singkat" | "deskripsi_lengkap" | "harga" | "gambar_url" | "kategori" | "rating" | "bahan_utama" | "updated_at", ExtArgs["result"]["kue"]>
+  export type kueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nama" | "deskripsi_singkat" | "deskripsi_lengkap" | "harga" | "gambar_url" | "kategori" | "rating" | "bahan_utama" | "updated_at" | "created_at", ExtArgs["result"]["kue"]>
   export type kueInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     detail_pesanan?: boolean | kue$detail_pesananArgs<ExtArgs>
     _count?: boolean | KueCountOutputTypeDefaultArgs<ExtArgs>
@@ -22307,7 +22307,6 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      created_at: Date
       nama: string | null
       deskripsi_singkat: string | null
       deskripsi_lengkap: string | null
@@ -22317,6 +22316,7 @@ export namespace Prisma {
       rating: Prisma.Decimal | null
       bahan_utama: string[]
       updated_at: Date | null
+      created_at: Date | null
     }, ExtArgs["result"]["kue"]>
     composites: {}
   }
@@ -22742,7 +22742,6 @@ export namespace Prisma {
    */
   interface kueFieldRefs {
     readonly id: FieldRef<"kue", 'String'>
-    readonly created_at: FieldRef<"kue", 'DateTime'>
     readonly nama: FieldRef<"kue", 'String'>
     readonly deskripsi_singkat: FieldRef<"kue", 'String'>
     readonly deskripsi_lengkap: FieldRef<"kue", 'String'>
@@ -22752,6 +22751,7 @@ export namespace Prisma {
     readonly rating: FieldRef<"kue", 'Decimal'>
     readonly bahan_utama: FieldRef<"kue", 'String[]'>
     readonly updated_at: FieldRef<"kue", 'DateTime'>
+    readonly created_at: FieldRef<"kue", 'DateTime'>
   }
     
 
@@ -22970,7 +22970,7 @@ export namespace Prisma {
     /**
      * The data needed to create a kue.
      */
-    data: XOR<kueCreateInput, kueUncheckedCreateInput>
+    data?: XOR<kueCreateInput, kueUncheckedCreateInput>
   }
 
   /**
@@ -24639,7 +24639,6 @@ export namespace Prisma {
 
   export const KueScalarFieldEnum: {
     id: 'id',
-    created_at: 'created_at',
     nama: 'nama',
     deskripsi_singkat: 'deskripsi_singkat',
     deskripsi_lengkap: 'deskripsi_lengkap',
@@ -24648,7 +24647,8 @@ export namespace Prisma {
     kategori: 'kategori',
     rating: 'rating',
     bahan_utama: 'bahan_utama',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    created_at: 'created_at'
   };
 
   export type KueScalarFieldEnum = (typeof KueScalarFieldEnum)[keyof typeof KueScalarFieldEnum]
@@ -26210,7 +26210,6 @@ export namespace Prisma {
     OR?: kueWhereInput[]
     NOT?: kueWhereInput | kueWhereInput[]
     id?: UuidFilter<"kue"> | string
-    created_at?: DateTimeFilter<"kue"> | Date | string
     nama?: StringNullableFilter<"kue"> | string | null
     deskripsi_singkat?: StringNullableFilter<"kue"> | string | null
     deskripsi_lengkap?: StringNullableFilter<"kue"> | string | null
@@ -26220,12 +26219,12 @@ export namespace Prisma {
     rating?: DecimalNullableFilter<"kue"> | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: StringNullableListFilter<"kue">
     updated_at?: DateTimeNullableFilter<"kue"> | Date | string | null
+    created_at?: DateTimeNullableFilter<"kue"> | Date | string | null
     detail_pesanan?: Detail_pesananListRelationFilter
   }
 
   export type kueOrderByWithRelationInput = {
     id?: SortOrder
-    created_at?: SortOrder
     nama?: SortOrderInput | SortOrder
     deskripsi_singkat?: SortOrderInput | SortOrder
     deskripsi_lengkap?: SortOrderInput | SortOrder
@@ -26235,6 +26234,7 @@ export namespace Prisma {
     rating?: SortOrderInput | SortOrder
     bahan_utama?: SortOrder
     updated_at?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
     detail_pesanan?: detail_pesananOrderByRelationAggregateInput
   }
 
@@ -26243,7 +26243,6 @@ export namespace Prisma {
     AND?: kueWhereInput | kueWhereInput[]
     OR?: kueWhereInput[]
     NOT?: kueWhereInput | kueWhereInput[]
-    created_at?: DateTimeFilter<"kue"> | Date | string
     nama?: StringNullableFilter<"kue"> | string | null
     deskripsi_singkat?: StringNullableFilter<"kue"> | string | null
     deskripsi_lengkap?: StringNullableFilter<"kue"> | string | null
@@ -26253,12 +26252,12 @@ export namespace Prisma {
     rating?: DecimalNullableFilter<"kue"> | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: StringNullableListFilter<"kue">
     updated_at?: DateTimeNullableFilter<"kue"> | Date | string | null
+    created_at?: DateTimeNullableFilter<"kue"> | Date | string | null
     detail_pesanan?: Detail_pesananListRelationFilter
   }, "id">
 
   export type kueOrderByWithAggregationInput = {
     id?: SortOrder
-    created_at?: SortOrder
     nama?: SortOrderInput | SortOrder
     deskripsi_singkat?: SortOrderInput | SortOrder
     deskripsi_lengkap?: SortOrderInput | SortOrder
@@ -26268,6 +26267,7 @@ export namespace Prisma {
     rating?: SortOrderInput | SortOrder
     bahan_utama?: SortOrder
     updated_at?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
     _count?: kueCountOrderByAggregateInput
     _avg?: kueAvgOrderByAggregateInput
     _max?: kueMaxOrderByAggregateInput
@@ -26280,7 +26280,6 @@ export namespace Prisma {
     OR?: kueScalarWhereWithAggregatesInput[]
     NOT?: kueScalarWhereWithAggregatesInput | kueScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"kue"> | string
-    created_at?: DateTimeWithAggregatesFilter<"kue"> | Date | string
     nama?: StringNullableWithAggregatesFilter<"kue"> | string | null
     deskripsi_singkat?: StringNullableWithAggregatesFilter<"kue"> | string | null
     deskripsi_lengkap?: StringNullableWithAggregatesFilter<"kue"> | string | null
@@ -26290,6 +26289,7 @@ export namespace Prisma {
     rating?: DecimalNullableWithAggregatesFilter<"kue"> | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: StringNullableListFilter<"kue">
     updated_at?: DateTimeNullableWithAggregatesFilter<"kue"> | Date | string | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"kue"> | Date | string | null
   }
 
   export type pesananWhereInput = {
@@ -27835,7 +27835,6 @@ export namespace Prisma {
 
   export type kueCreateInput = {
     id?: string
-    created_at: Date | string
     nama?: string | null
     deskripsi_singkat?: string | null
     deskripsi_lengkap?: string | null
@@ -27845,12 +27844,12 @@ export namespace Prisma {
     rating?: Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueCreatebahan_utamaInput | string[]
     updated_at?: Date | string | null
+    created_at?: Date | string | null
     detail_pesanan?: detail_pesananCreateNestedManyWithoutKueInput
   }
 
   export type kueUncheckedCreateInput = {
     id?: string
-    created_at: Date | string
     nama?: string | null
     deskripsi_singkat?: string | null
     deskripsi_lengkap?: string | null
@@ -27860,12 +27859,12 @@ export namespace Prisma {
     rating?: Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueCreatebahan_utamaInput | string[]
     updated_at?: Date | string | null
+    created_at?: Date | string | null
     detail_pesanan?: detail_pesananUncheckedCreateNestedManyWithoutKueInput
   }
 
   export type kueUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_singkat?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_lengkap?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27875,12 +27874,12 @@ export namespace Prisma {
     rating?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueUpdatebahan_utamaInput | string[]
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     detail_pesanan?: detail_pesananUpdateManyWithoutKueNestedInput
   }
 
   export type kueUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_singkat?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_lengkap?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27890,12 +27889,12 @@ export namespace Prisma {
     rating?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueUpdatebahan_utamaInput | string[]
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     detail_pesanan?: detail_pesananUncheckedUpdateManyWithoutKueNestedInput
   }
 
   export type kueCreateManyInput = {
     id?: string
-    created_at: Date | string
     nama?: string | null
     deskripsi_singkat?: string | null
     deskripsi_lengkap?: string | null
@@ -27905,11 +27904,11 @@ export namespace Prisma {
     rating?: Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueCreatebahan_utamaInput | string[]
     updated_at?: Date | string | null
+    created_at?: Date | string | null
   }
 
   export type kueUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_singkat?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_lengkap?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27919,11 +27918,11 @@ export namespace Prisma {
     rating?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueUpdatebahan_utamaInput | string[]
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type kueUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_singkat?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_lengkap?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27933,6 +27932,7 @@ export namespace Prisma {
     rating?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueUpdatebahan_utamaInput | string[]
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type pesananCreateInput = {
@@ -29309,7 +29309,6 @@ export namespace Prisma {
 
   export type kueCountOrderByAggregateInput = {
     id?: SortOrder
-    created_at?: SortOrder
     nama?: SortOrder
     deskripsi_singkat?: SortOrder
     deskripsi_lengkap?: SortOrder
@@ -29319,6 +29318,7 @@ export namespace Prisma {
     rating?: SortOrder
     bahan_utama?: SortOrder
     updated_at?: SortOrder
+    created_at?: SortOrder
   }
 
   export type kueAvgOrderByAggregateInput = {
@@ -29328,7 +29328,6 @@ export namespace Prisma {
 
   export type kueMaxOrderByAggregateInput = {
     id?: SortOrder
-    created_at?: SortOrder
     nama?: SortOrder
     deskripsi_singkat?: SortOrder
     deskripsi_lengkap?: SortOrder
@@ -29337,11 +29336,11 @@ export namespace Prisma {
     kategori?: SortOrder
     rating?: SortOrder
     updated_at?: SortOrder
+    created_at?: SortOrder
   }
 
   export type kueMinOrderByAggregateInput = {
     id?: SortOrder
-    created_at?: SortOrder
     nama?: SortOrder
     deskripsi_singkat?: SortOrder
     deskripsi_lengkap?: SortOrder
@@ -29350,6 +29349,7 @@ export namespace Prisma {
     kategori?: SortOrder
     rating?: SortOrder
     updated_at?: SortOrder
+    created_at?: SortOrder
   }
 
   export type kueSumOrderByAggregateInput = {
@@ -32628,7 +32628,6 @@ export namespace Prisma {
 
   export type kueCreateWithoutDetail_pesananInput = {
     id?: string
-    created_at: Date | string
     nama?: string | null
     deskripsi_singkat?: string | null
     deskripsi_lengkap?: string | null
@@ -32638,11 +32637,11 @@ export namespace Prisma {
     rating?: Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueCreatebahan_utamaInput | string[]
     updated_at?: Date | string | null
+    created_at?: Date | string | null
   }
 
   export type kueUncheckedCreateWithoutDetail_pesananInput = {
     id?: string
-    created_at: Date | string
     nama?: string | null
     deskripsi_singkat?: string | null
     deskripsi_lengkap?: string | null
@@ -32652,6 +32651,7 @@ export namespace Prisma {
     rating?: Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueCreatebahan_utamaInput | string[]
     updated_at?: Date | string | null
+    created_at?: Date | string | null
   }
 
   export type kueCreateOrConnectWithoutDetail_pesananInput = {
@@ -32703,7 +32703,6 @@ export namespace Prisma {
 
   export type kueUpdateWithoutDetail_pesananInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_singkat?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_lengkap?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32713,11 +32712,11 @@ export namespace Prisma {
     rating?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueUpdatebahan_utamaInput | string[]
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type kueUncheckedUpdateWithoutDetail_pesananInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     nama?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_singkat?: NullableStringFieldUpdateOperationsInput | string | null
     deskripsi_lengkap?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32727,6 +32726,7 @@ export namespace Prisma {
     rating?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     bahan_utama?: kueUpdatebahan_utamaInput | string[]
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type pesananUpsertWithoutDetail_pesananInput = {

@@ -325,7 +325,6 @@ exports.Prisma.Detail_pesananScalarFieldEnum = {
 
 exports.Prisma.KueScalarFieldEnum = {
   id: 'id',
-  created_at: 'created_at',
   nama: 'nama',
   deskripsi_singkat: 'deskripsi_singkat',
   deskripsi_lengkap: 'deskripsi_lengkap',
@@ -334,7 +333,8 @@ exports.Prisma.KueScalarFieldEnum = {
   kategori: 'kategori',
   rating: 'rating',
   bahan_utama: 'bahan_utama',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  created_at: 'created_at'
 };
 
 exports.Prisma.PesananScalarFieldEnum = {

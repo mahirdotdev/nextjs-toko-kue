@@ -347,7 +347,6 @@ model detail_pesanan {
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model kue {
   id                String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  created_at        DateTime         @db.Timestamptz(6)
   nama              String?
   deskripsi_singkat String?
   deskripsi_lengkap String?
@@ -356,7 +355,8 @@ model kue {
   kategori          String?
   rating            Decimal?         @db.Decimal
   bahan_utama       String[]
-  updated_at        DateTime?        @db.Timestamptz(6)
+  updated_at        DateTime?        @default(now()) @db.Timestamptz(6)
+  created_at        DateTime?        @default(now()) @db.Timestamptz(6)
   detail_pesanan    detail_pesanan[]
 
   @@schema("public")
